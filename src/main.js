@@ -156,6 +156,7 @@ function addTask() {
 	})
 		.then((data) => {
 			// console.log(data);
+			displayInfoToast("Redirecting...");
 			getTasks();
 			// console.log(indexToIdMap);
 			displaySuccessToast("Task Added");
@@ -267,3 +268,17 @@ function searchTask() {
 }
 
 window.searchTask = searchTask;
+
+/* Adding the functionality of invoking the function when user presses ENTER key */
+
+document.getElementById("search-new-task").addEventListener("keydown", (e) => {
+	if (e.key == "Enter") {
+		searchTask();
+	}
+});
+
+document.getElementById("add-new-task").addEventListener("keydown", (e) => {
+	if (e.key == "Enter") {
+		addTask();
+	}
+});
